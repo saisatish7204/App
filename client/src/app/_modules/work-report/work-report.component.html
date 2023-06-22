@@ -1,0 +1,51 @@
+<div class="card">
+    <h4 class="card-header">Employee Work Report </h4>
+    <div class="card-body">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label class="form-label">Emp ID</label>
+                <input type="text" formControlName="empId" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.empId.errors }" />
+                <div *ngIf="submitted && f.empId.errors" class="invalid-feedback">
+                    <div *ngIf="f.empId.errors.required">Emp ID is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">User Name</label>
+                <input type="text" formControlName="userName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.userName.errors }" />
+                <div *ngIf="submitted && f.userName.errors" class="invalid-feedback">
+                    <div *ngIf="f.userName.errors.required">User Name is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Date</label>
+                <input type="date" formControlName="date" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.date.errors }" />
+                <div *ngIf="submitted && f.date.errors" class="invalid-feedback">
+                    <div *ngIf="f.date.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Project</label>
+                <input type="text" formControlName="project" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.project.errors }" />
+                <div *ngIf="submitted && f.project.errors" class="invalid-feedback">
+                    <div *ngIf="f.project.errors.required">Password is required</div>
+                    <div *ngIf="f.project.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Work Report</label>
+                <input type="file" formControlName="workReport" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.workReport.errors }" />
+                <div *ngIf="submitted && f.workReport.errors" class="invalid-feedback">
+                    <div *ngIf="f.workReport.errors.required">Password is required</div>
+                    <div *ngIf="f.workReport.errors.minlength">Password must be at least 6 characters</div>
+                </div>
+            </div>
+            
+            <div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm me-1"></span>
+                    Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
